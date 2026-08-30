@@ -3,10 +3,10 @@
 -- Drop existing tables if they exist (for idempotency)
 DROP TABLE IF EXISTS skills_job_dim;
 DROP TABLE IF EXISTS job_postings_fact;
-DROP TABLE IF EXISTS comapny_dim;
+DROP TABLE IF EXISTS company_dim;
 DROP TABLE IF EXISTS skills_dim;
 
-CREATE TABLE comapny_dim(
+CREATE TABLE company_dim(
     company_id INTEGER PRIMARY KEY,
     name VARCHAR,
     link VARCHAR,
@@ -37,7 +37,7 @@ CREATE TABLE job_postings_fact (
     salary_rate VARCHAR,
     salary_year_avg DOUBLE,
     salary_hour_avg DOUBLE,
-    FOREIGN KEY (company_id) REFERENCES comapny_dim(company_id)
+    FOREIGN KEY (company_id) REFERENCES company_dim(company_id)
 );
 
 CREATE TABLE skills_job_dim (
